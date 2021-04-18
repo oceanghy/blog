@@ -1,0 +1,13 @@
+spring:
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+  profiles:
+    active: dev
+server:
+  servlet:
+    context-path: /

@@ -1,0 +1,95 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initail-scale=1.0"/>
+    <title>错误</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css"/>
+
+</head>
+<body>
+<nav th:fragment="menu(0)" class="ui inverted attached segment m-padding-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">OCEAN</h2>
+            <a href="#" class="active m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="hand peace icon"></i>关于我</a>
+            <!-- 搜索框 -->
+            <div class="right m-item item m-mobile-hide">
+                <div class="ui icon inverted tansparent input">
+                    <input type="text" placeholder="搜索"/>
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="m-container-small m-padding-tb-massive">
+    <div class="ui error message m-padding-tb-huge">
+        <div class="ui m-container">
+            <h2>404</h2>
+            <p>出错惹</p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+<footer th:fragment="footer" class="ui inverted vertical segment m-padding-tb-massive">
+
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <!-- 二维码 -->
+            <div class="three wide column">
+                <img th:src="@{/images/ocean.png}" class="ui centered rounded image" style="width: 120px;" >
+            </div>
+            <!-- 底部文字1 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                </div>
+
+            </div>
+            <!-- 底部文字2 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我们</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">E-mail:g15761056@163.com</a>
+                    <a href="#" class="item">QQ:1576100056</a>
+                </div>
+            </div>
+
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">OCEAN</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这个是我的个人博客，用来分享平时学习工作的中发现的问题，会发布有关编程的帖子</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider">
+            <p class="m-text-thin m-text-spaced m-opacity-tiny" style="padding-top: 50px;">© Copyright OCEAN. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+</html>

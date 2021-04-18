@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.resources:add-mapping",
+      "type": "java.lang.String",
+      "description": "Description for spring.resources:add-mapping."
+  }
+] }
