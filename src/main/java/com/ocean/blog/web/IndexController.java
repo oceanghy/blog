@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /*
-    这是一个拦截错误的拦截器
+    这是一个拦截器
  */
 @Controller
 public class IndexController {
@@ -14,8 +14,8 @@ public class IndexController {
     public String index(){
         return "index";
     }
-    @GetMapping("/blog")
-    public String blog(){
-        return "blog";
-    }
+//    @GetMapping("/admin")
+//    public String blog(){
+//        return "admin/index";
+//    }
 }

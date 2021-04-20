@@ -6,6 +6,7 @@
 		<title>管理后台</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 		<link rel="stylesheet" href="../../static/css/me.css" th:href=@{/css/me.css}/>
+		<link rel="stylesheet" href="../static/libs/editormd/css/editormd.css" th:href=@{/css/editormd.css}/>
 	</head>
 	<body>
 		<!-- 导航 -->
@@ -13,8 +14,8 @@
 			<div class="ui container">
 				<div class="ui inverted secondary stackable menu">
 					<h2 class="ui teal header item">管理后台</h2>
-					<a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
-					<a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+					<a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+					<a href="#" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
 					<a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
 					<div class="right menu">
 						<div class="ui m-item m-mobile-hide dropdown item">
@@ -39,8 +40,8 @@
 		<div class="ui attached pointing menu">
 			<div class="ui container">
 				<div class="right menu">
-					<a href="#" class="item">发布</a>
-					<a href="#" class="active teal item">列表</a>
+					<a href="#" th:href="@{/admin/tags/input}" class="active item">新增</a>
+					<a href="#" th:href="@{/admin/tags}" class=" teal item">列表</a>
 				</div>
 				
 			</div>
@@ -49,83 +50,57 @@
 		<!-- 中间内容 -->
 		<div class="m-padding-tb-big m-container-small">
 			<div class="ui container">
-				<form action="#" method="post" class="ui secondary segment form">
-					<input type="hidden" name="page">
-					<div class="inline fields">
-						<div class="field">
-							<input type="text" name="title" placeholder="标题"/>
+				<form action="#" method="post" th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}"   class="ui form">
+					<input type="hidden" name="id" th:value="*{id}">
+					<div class=" required field">
+						<div class="ui left labeled input">
+							<label class="ui teal basic label">分类</label>
+							<input type="text" name="name" placeholder="分类名称" th:value="*{name}"/>
 						</div>
-						<div class="field">
-							<div class="ui selection dropdown">
-								<input type="hidden" name="type" id="type" />
-								<i class="dropdown icon"></i>
-								<div class="default text">分类</div>
-								<div class="menu">
-									<div class="item" data-value="1">错误日志</div>
-									<div class="item" data-value="2">开发日志</div>
-								</div>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui checkbox">
-								<input type="checkbox" name="recommend" id="recommend"/>
-								<label for="recommend">推荐</label>
-							</div>
-						</div>
-						<div class="field">
-							<button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
-						</div>
-						
 					</div>
+					<!-- 表单验证-错误信息 -->
+					<div class="ui error message"></div>
+
+					<!--/*/
+					<div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+						<i class="close icon"></i>
+						<div class="header">验证失败</div>
+						<p th:errors="*{name}">提交信息不符合规则</p>
+					</div>
+					/*/-->
+
+
 					
+					<div class="ui right aligned container">
+						<button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+						<button class="ui blue submit button">提交</button>
+					</div>
 				</form>
-				<table class="ui compact teal table">
-					<thead>
-						<tr>
-							<th></th>
-							<th>标题</th>
-							<th>类型</th>
-							<th>推荐</th>
-							<th>更新时间</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="blog,iterStat : ${page.content}">
-							<td th:text="${iterStat.count}">1</td>
-							<td th:text="${blog.title}">刻意练习清单</td>
-							<td th:text="${blog.type.name}">认知升级</td>
-							<td th:text="${blog.recommend} ? '是' : '否'">是</td>
-							<td th:text="${blog.updateTime}">2021年4月14日19:11</td>
-							<td>
-								<a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
-								<a href="#"  th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui mini red basic button">删除</a>
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<th colspan="6">
-								<div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-									<a onclick="page(this)" th:attr="data-page=${page.number}-1}" class="icon item" one-link-mark="yes">
-									   上一页
-									</a>
-									<a onclick="page(this)" th:attr="data-page=${page.number}+1}" class="icon item" one-link-mark="yes">
-									   下一页
-									</a>
-									
-								</div>
-								<a href="#" class="ui mini right floated teal basic button">新增</a>
-							</th>
-						</tr>
-					</tfoot>
-				</table>
 			</div>
 			
 		</div>
-				</br>
-				</br>
-				</br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
 			
 		
 		<!-- 底部footer -->
@@ -173,8 +148,25 @@
 			$('.menu.toggle').click(function(){
 				$('.m-item').toggle('m-mobile-hide');
 			});
-			$('.ui.dropdown').dropdown();
+			$('.ui.dropdown').dropdown({
+				on : 'hover'
+			});
+			// 表单验证
+			$('.ui.form').form({
+				fields:{
+					title:{
+						identifier:'name',
+						rules:[{
+							type:'empty',
+							prompt:'请输入分类名称'
+						}]
+					}
+				}
+			});
+			
 		</script>
+		
+		
 	</body>
 
 </html>
